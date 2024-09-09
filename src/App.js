@@ -20,10 +20,6 @@ function App() {
         <Route path="/" element={<AppLayout />}>
           <Route index path="/dashboard" element={<Dashboard />} />
           <Route path="/inventory/product" element={<Product />} />
-          <Route
-            path="/inventory/product/product-form"
-            element={<ProductForm />}
-          />
           <Route path="/inventory/product-list" element={<ProductList />} />
           <Route path="/billing/home" element={<BillingHome />} />
           <Route path="/billing/invoice-list" element={<Invoice />} />

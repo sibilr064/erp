@@ -4,6 +4,8 @@ import { DataGrid } from "@mui/x-data-grid";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import ProductForm from "./ProductForm";
+import { useState } from "react";
 
 const columns = [
   {
@@ -85,6 +87,7 @@ const handleDelete = (id) => {
 };
 
 export default function ProductList() {
+  const [isFormOpen, setIsFormOpen] = useState(false);
   return (
     <>
       <Box
@@ -95,20 +98,27 @@ export default function ProductList() {
         }}
       >
         <Typography variant="h5" component="h2">
-          Product List
+          {isFormOpen ? "Product Form" : "Product List"}
         </Typography>
 
-        <Button
-          component={Link}
-          to="/inventory/product/product-form"
-          variant="contained"
-          startIcon={<AddIcon />}
-        >
-          Add Product
-        </Button>
+        {isFormOpen ? (
+          ""
+        ) : (
+          <Button
+            variant="contained"
+            startIcon={<AddIcon />}
+            onClick={() => setIsFormOpen((e) => !e)}
+          >
+            Add Product
+          </Button>
+        )}
       </Box>
       <Box sx={{ marginTop: "32px" }}>
-        <DataGridDemo />
+        {isFormOpen ? (
+          <ProductForm setIsFormOpen={setIsFormOpen} />
+        ) : (
+          <DataGridDemo />
+        )}
       </Box>
     </>
   );

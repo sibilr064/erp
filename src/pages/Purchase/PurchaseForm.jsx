@@ -3,7 +3,7 @@ import { Box, TextField, Button, Typography, Grid } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../features/product/productSlice";
 
-export default function ProductForm({ setIsFormOpen }) {
+export default function PurchaseForm({ setIsFormOpen }) {
   const dispatch = useDispatch();
 
   // State to hold form input values
